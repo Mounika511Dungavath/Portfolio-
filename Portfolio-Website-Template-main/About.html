@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    #about{
+        padding:80px 0;
+        background-color: black;
+        color:black;
+    }
+    .row{
+        display:flex;
+        justify-content: space-between;
+        flex-wrap:wrap;
+    }
+    .about-col-1{
+        flex-basis:35%;
+    }
+    .about-col-1 img{
+        width:100%;
+        border-radius:15px;
+    }
+    .about-col-2{
+        flex-basis:60%;
+    }
+    .sub-title{
+        font-size:60px;
+        font-weight:600;
+        color:black;
+        text-align:justify;
+    }
+    .tab-titles{
+        display:flex;
+        margin:20px 0 40px;
+    }
+    .tab-links{
+        margin-right: 50px;
+        font-size:18px;
+        font-weight: 500;
+        cursor:pointer;
+        position: relative;
+    }
+    .tab-links::after{
+        content:'';
+        width:0;
+        height:3px;
+        background:indianred;
+        position:absolute;
+        left:0;
+        bottom:-8px;
+        transition:0.5s;
+    }
+    .tab-links.active-link::after{
+        width:50%;
+    }
+    .tab-contents ul li{
+        list-style: none;
+        margin:10px 0;
+    }
+    .tab-contents ul li span{
+        color:indianred;
+        font-size:14px;
+    }
+    .tab-contents{
+        display:none;
+
+    }
+    .tab-contents.active-tab{
+        display:block;
+    }
+</style>
+</head>
+<body>
+    <div id="about"></div>
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="bg-3.jpeg">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>I will pursue my graduation(CSE) at Jawaharlal Nehru Technological University Anantapur by 2025.<br/>Motivated and Results-driven professional seeking a challenging position in Web Development to utilize my skills,Knowledge and Experience for the growth and success.<br/>Excellence in Web Development and as well as in data science.<br/>
+                Achieved Datascience Certificate from Internshala Trainings.</p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links"onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links"onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>UI/UX</span><br>Desigining Web/App interfaces</li>
+                        <li><span>Web Development</span><br>Web app Development</li>
+                        <li><span>App Development</span><br>Building Android/ios Apps</li>
+                    </ul>
+                </div>
+                <div class="tab-contents"id="experience">
+                    <ul>
+                        <li><span>2024-Current</span><br>Web Development Training in Online at Udemy</li>
+                        <li><span>2022-2023</span><br>Data Science Training at Internshala Trainings </li>
+                    </ul>
+                </div>
+                <div class="tab-contents"id="education">
+                    <ul>
+                        <li><span>B-Tech:</span><b>JNTUA</b><br><span>Board:</span>APSCHE<br><span>Year of passing:</span>2021-2025<br><span>Percentage: </span> 80%</li>
+                        <li><span>Intermediate:</span><b> Narayana Junior College</b><br><span>Board:</span>APBIE<br><span>Year of passing:</span>2019-2021<br><span>Percentage: </span> 96.5%</li>
+                        <li><span>B-Tech:</span><b>Raos School</b><br><span>Board:</span>APSCHE<br><span>Year of passing:</span>2018-2019<br><span>Percentage: </span> 98%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+     var tablinks=document.getElementsByClassName("tab-links");
+     var tabcontents=document.getElementsByClassName("tab-contents");
+     function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+     }
+     event.currentTarget.classList.add("active-link");
+     document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+</body>
+</html>
